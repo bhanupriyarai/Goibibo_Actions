@@ -21,8 +21,8 @@ class Homepage(Basepage):
 
     def check_flights_selected(self):
         x = self.get_element_text(self.flights)
-        y = re.search("Flights", x)
-        print(" {0} is selected").format(y)
+        if "Flights" in x:
+            print("flight is selected")
 
     def select_round_trip_option(self):
         self.do_click(self.Round_trip_button)
