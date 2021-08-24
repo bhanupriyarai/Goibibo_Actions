@@ -5,19 +5,19 @@ import re
 
 class Homepage(Basepage):
 
-    flights: (By.XPATH, "//*[@class='active']")
-    Round_trip_button: (By.ID, "roundTrip")
-    From: (By.XPATH, "//*[@placeholder='From']")
-    Destination: (By.XPATH, "//*[@placeholder='Destination']")
-    Start_date_picker: (By.ID, "departureCalendar")
-    calender_title: (By.CLASS_NAME, "DayPicker-Caption")
-    Day: (By.CLASS_NAME,"DayPicker-Day")
-    Nav_button: (By.CLASS_NAME, "DayPicker-NavButton DayPicker-NavButton--next")
-    End_date_picker: (By.ID, "returnCalendar")
-    Traveller_tab: (By.CLASS_NAME, "dF alignItemsCenter ico14 textOverflow blueGrey trvlr-box")
-    Traveller_count: (By.ID, "adultPaxBox")
-    traveller_type: (By.ID, "gi_class")
-    Search_button: (By.XPATH, "//button[contains(text(),'SEARCH')]")
+    flights = (By.CLASS_NAME, "active")
+    Round_trip_button = (By.ID, "roundTrip")
+    From = (By.NAME, "From")
+    Destination = (By.NAME, "Destination")
+    Start_date_picker = (By.ID, "departureCalendar")
+    calender_title = (By.CLASS_NAME, "DayPicker-Caption")
+    Day = (By.CLASS_NAME, "DayPicker-Day")
+    Nav_button = (By.CLASS_NAME, "DayPicker-NavButton DayPicker-NavButton--next")
+    End_date_picker = (By.ID, "returnCalendar")
+    Traveller_tab = (By.CLASS_NAME, "dF alignItemsCenter ico14 textOverflow blueGrey trvlr-box")
+    Traveller_count = (By.ID, "adultPaxBox")
+    traveller_type = (By.ID, "gi_class")
+    Search_button = (By.XPATH, "//button[contains(text(),'SEARCH')]")
 
     def check_flights_selected(self):
         x = self.get_element_text(self.flights)
