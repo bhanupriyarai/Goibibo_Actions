@@ -18,15 +18,15 @@ class Test_flow(TestBase):
         self.home = Homepage(self.driver)
         self.home.check_flights_selected()
 
-    # def test_search_flights(self):
+    def test_search_flights(self):
         self.home = Homepage(self.driver)
         self.home.select_round_trip_option()
-        # self.home.select_from_place(TestData.from_)
-        # self.home.select_to_place(TestData.To)
+        self.home.select_from_place(TestData.from_)
+        self.home.select_to_place(TestData.To)
         # self.home.select_on_date(TestData.from_day, TestData.from_month, TestData.from_year)
         # self.home.select_return_date(TestData.return_day, TestData.from_month, TestData.from_year)
-        # self.home.select_num_traveller(TestData.num_traveller)
-        # self.home.select_class_type(TestData.type)
-        # self.home.search_flights()
+        self.home.select_num_traveller(TestData.num_traveller)
+        self.home.select_class_type(TestData.type)
+        self.home.search_flights()
 
 

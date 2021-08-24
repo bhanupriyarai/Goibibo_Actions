@@ -7,8 +7,9 @@ class Homepage(Basepage):
 
     flights = (By.CLASS_NAME, "active")
     Round_trip_button = (By.ID, "roundTrip")
-    From = (By.NAME, "From")
-    Destination = (By.NAME, "Destination")
+    From = (By.XPATH, "//input[@placeholder='From']")
+    list_auto = (By.XPATH, "//li[contains(@id,'react-autosuggest-1-suggestion')]//div[@class='mainTxt clearfix']/span")
+    Destination = (By.XPATH, "//input[@placeholder='Destination']")
     Start_date_picker = (By.ID, "departureCalendar")
     calender_title = (By.CLASS_NAME, "DayPicker-Caption")
     Day = (By.CLASS_NAME, "DayPicker-Day")
@@ -28,14 +29,12 @@ class Homepage(Basepage):
         self.do_click(self.Round_trip_button)
 
     def select_from_place(self, text):
-        self.do_click(self.From)
         self.do_send_keys(self.From, text)
-        self.select_by_text(self.From, text)
+        self.select_by_text(self.list_auto, text)
 
     def select_to_place(self, text):
-        self.do_click(self.Destination)
         self.do_send_keys(self.Destination, text)
-        self.select_by_text(self.Destination, text)
+        self.select_by_text(self.list_auto, text)
 
     def select_on_date(self, day, month, year):
         self.do_click(self.Start_date_picker)
