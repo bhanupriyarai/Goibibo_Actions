@@ -12,13 +12,17 @@ class Homepage(Basepage):
     Destination = (By.XPATH, "//input[@placeholder='Destination']")
     Start_date_picker = (By.ID, "departureCalendar")
     calender_title = (By.CLASS_NAME, "DayPicker-Caption")
-    Day = (By.CLASS_NAME, "DayPicker-Day")
-    Nav_button = (By.CLASS_NAME, "DayPicker-NavButton DayPicker-NavButton--next")
+    Day = (By.XPATH, "//div/div[@class='DayPicker-Day']")
+    Nav_button = (By.XPATH, "//span[@aria-label='Next Month']")
     End_date_picker = (By.ID, "returnCalendar")
-    Traveller_tab = (By.CLASS_NAME, "dF alignItemsCenter ico14 textOverflow blueGrey trvlr-box")
+    Traveller_tab = (By.ID, "pax_link_common")
     Traveller_count = (By.ID, "adultPaxBox")
     traveller_type = (By.ID, "gi_class")
     Search_button = (By.XPATH, "//button[contains(text(),'SEARCH')]")
+
+    def __init__(self, driver):
+        super().__init__(driver)
+        #self.driver = driver
 
     def check_flights_selected(self):
         x = self.get_element_text(self.flights)
@@ -36,14 +40,14 @@ class Homepage(Basepage):
         self.do_send_keys(self.Destination, text)
         self.select_by_text(self.list_auto, text)
 
-    def select_on_date(self, day, month, year):
+    def select_on_date(self, day, month):
         self.do_click(self.Start_date_picker)
-        self.validate_date_picker(self.calender_title, month, year, self.Nav_button)
+        # self.validate_date_picker(self.calender_title, month)
         self.select_by_text(self.Day, day)
 
-    def select_return_date(self, day, month, year):
+    def select_return_date(self, day, month):
         self.do_click(self.End_date_picker)
-        self.validate_date_picker(self.calender_title, month, year, self.Nav_button)
+        # self.validate_date_picker(self.calender_title, month)
         self.select_by_text(self.Day, day)
 
     def select_num_traveller(self, num):

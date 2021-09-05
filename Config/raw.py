@@ -5,11 +5,16 @@ class TestData:
     Base_URL = "https://www.goibibo.com/"
     from_ = "Bengaluru, India"
     To = "Delhi, India"
-    from_day = 23
+    from_day = "23"
     from_month = "October"
-    from_year = 2021
     return_day = 30
     num_traveller = 2
     type = "Economy"
+    to_val, return_val = 2
+    title = "Ms"
+    first_name = "Bhanu"
+    last_name = "Rai"
+    email_id = "rai.bhanupriya012@gmail.com"
+    number = "9538646548"
 
 
